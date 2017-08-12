@@ -40,7 +40,7 @@ The `initialize` method accepts an optional `options` object:
 
 ### Options
 |Name|Type|Default|
-|---|---|---|---|
+|---|---|---|
 |rootMargin|string|0 50px|
 |threshold|number|0.1|
 
