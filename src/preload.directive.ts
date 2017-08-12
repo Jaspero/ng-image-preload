@@ -1,5 +1,5 @@
 import {Directive, ElementRef, Input, Renderer2} from '@angular/core';
-import {PreloadService} from '../services/preload.service';
+import {PreloadService} from './preload.service';
 
 @Directive({
   selector: '[jaspero-preload]'

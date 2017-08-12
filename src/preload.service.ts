@@ -34,9 +34,7 @@ export class PreloadService {
     }
 
     onIntersection(entries) {
-        console.log(1);
         entries.forEach(entry => {
-            console.log(entry);
             if (entry.intersectionRatio <= 0) {
                 return;
             }
