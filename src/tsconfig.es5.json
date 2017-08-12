@@ -22,7 +22,7 @@
     "strictMetadataEmit": true,
     "skipTemplateCodegen": true,
     "flatModuleOutFile": "ng-image-preload.js",
-    "flatModuleId": "ng-image-preload"
+    "flatModuleId": "@jaspero/ng-image-preload"
   },
   "files": [
     "./index.ts"

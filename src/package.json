@@ -1,28 +1,28 @@
 {
-  "name": "ng-image-preload",
+  "name": "@jaspero/ng-image-preload",
   "version": "0.1.0",
   "repository": {
     "type": "git",
-    "url": "ng-image-preload"
+    "url": "https://github.com/Jaspero/ng-image-preload.git"
   },
   "author": {
-    "name": "Filip Lauc",
-    "email": "filip.lauc93@gmail.com"
+    "name": "Jaspero co.",
+    "email": "info@jaspero.co"
   },
   "keywords": [
     "angular"
   ],
   "license": "MIT",
   "bugs": {
-    "url": "ng-image-preload/issues"
+    "url": "https://github.com/Jaspero/ng-image-preload/issues"
   },
   "main": "ng-image-preload.umd.js",
   "module": "ng-image-preload.js",
   "jsnext:main": "ng-image-preload.js",
   "typings": "ng-image-preload.d.ts",
   "peerDependencies": {
-    "@angular/core": "^4.0.0",
-    "rxjs": "^5.1.0",
-    "zone.js": "^0.8.4"
+    "@angular/core": "4.3.0",
+    "rxjs": "5.1.0",
+    "zone.js": "0.8.4"
   }
 }
