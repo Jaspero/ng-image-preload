@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Jaspero/ng-color-picker.svg?branch=master)](https://travis-ci.org/jaspero/ng-image-preloader)
+[![Build Status](https://travis-ci.org/Jaspero/ng-image-preloader.svg?branch=master)](https://travis-ci.org/jaspero/ng-image-preloader)
 [![NPM Version](https://img.shields.io/npm/v/@jaspero/ng-image-preloader.svg)](https://www.npmjs.com/package/@jaspero/ng-image-preloader)
 
 # NG Image Preload

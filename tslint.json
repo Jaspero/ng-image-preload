@@ -18,11 +18,23 @@
     "label-position": true,
     "max-line-length": false,
     "member-access": false,
-    "member-ordering": [
-      true,
-      "static-before-instance",
-      "variables-before-functions"
-    ],
+    "member-ordering": [true, {
+      "order": [
+        "constructor",
+        "public-static-field",
+        "protected-static-field",
+        "private-static-field",
+        "public-instance-field",
+        "protected-instance-field",
+        "private-instance-field",
+        "public-instance-method",
+        "protected-instance-method",
+        "private-instance-method",
+        "private-static-method",
+        "protected-static-method",
+        "public-static-method"
+      ]
+    }],
     "no-arg": true,
     "no-bitwise": false,
     "no-console": [
@@ -86,8 +98,8 @@
       "check-separator",
       "check-type"
     ],
-    "directive-selector": [true, "attribute", "", "camelCase"],
-    "component-selector": [true, "element", "", "kebab-case"],
+    "directive-selector": false,
+    "component-selector": [true, "element", "jaspero", "kebab-case"],
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,
     "use-host-property-decorator": true,
