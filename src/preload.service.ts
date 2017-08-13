@@ -1,5 +1,7 @@
 import {Injectable} from '@angular/core';
 
+declare const IntersectionObserver: any;
+
 export interface IPreloadOptions {
     rootMargin?: string;
     threshold?: number;
