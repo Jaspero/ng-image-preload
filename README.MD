@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/Jaspero/ng-image-preloader.svg?branch=master)](https://travis-ci.org/jaspero/ng-image-preloader)
-[![NPM Version](https://img.shields.io/npm/v/@jaspero/ng-image-preloader.svg)](https://www.npmjs.com/package/@jaspero/ng-image-preloader)
+[![Build Status](https://travis-ci.org/Jaspero/ng-image-preload.svg?branch=master)](https://travis-ci.org/jaspero/ng-image-preload)
+[![NPM Version](https://img.shields.io/npm/v/@jaspero/ng-image-preload.svg)](https://www.npmjs.com/package/@jaspero/ng-image-preload)
 
 # NG Image Preload
 An image preload module for Angular using [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) in favour of scroll listener's.
