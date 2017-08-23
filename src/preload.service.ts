@@ -15,8 +15,8 @@ export class PreloadService {
     }
 
     observer: IntersectionObserver;
-    onAdd: Function;
-    elements: HTMLElement[];
+    onAdd: Function = this.addImageFallbackToSet;
+    elements: HTMLElement[] = [];
     defaultOptions: IPreloadOptions = {
         rootMargin: '50px 0px',
         threshold: 0.01
@@ -24,9 +24,7 @@ export class PreloadService {
 
     initialize(options: IPreloadOptions = {}) {
         if (PreloadService.INTERSECTION_OBSERVER_SUPPORT) {
-            options = {...this.defaultOptions, options};
-
-            this.elements = [];
+            options = {...this.defaultOptions, ...options};
             this.onAdd = this.addImageToSet;
             this.observer = new IntersectionObserver((entries) => this.onIntersection(entries), options);
         } else {
