@@ -58,12 +58,12 @@ Inject the `PreloadService` in to a component.
 
 ```ts
 constructor(
-    private _preload: PreloadService
+    private preload: PreloadService
 ) {}
 
 // Then add an image element to the que like this:
 addImage(element: HTMLElement, config: ElementConfig) {
-    this._preload.addImage(element, config);
+    this.preload.addImage(element, config);
 }
 ```
 
@@ -95,3 +95,7 @@ You can also attach a fallback (loads if the requested image fails) like this:
   fallback="someFallback.jpg"
 />
 ```
+
+## License
+
+MIT © [Jaspero co.](mailto:info@jaspero.co)
