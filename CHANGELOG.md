@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/Jaspero/ng-image-preload/compare/v1.0.0...v1.0.1) (2019-01-05)
+
+
+### Bug Fixes
+
+* package not scoped ([06f029a](https://github.com/Jaspero/ng-image-preload/commit/06f029a))
+
 # 1.0.0 (2019-01-05)
 
 
