@@ -10,6 +10,12 @@ An image preload module for Angular using [IntersectionObserver](https://develop
 npm install --save @jaspero/ng-image-preloader
 ```
 
+## Example
+
+A demo can be found here:
+
+https://jaspero.github.io/ng-image-preload/
+
 ## Setup
 
 Import `JpImagePreloaderModule` in your `@NgModule`:
