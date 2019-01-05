@@ -5,10 +5,6 @@ import {loadImage} from './utils/load-image';
 
 @Injectable()
 export class JpPreloadService {
-  static get INTERSECTION_OBSERVER_SUPPORT() {
-    return 'IntersectionObserver' in window;
-  }
-
   observer: IntersectionObserver;
   onAdd: addImage = this.addImageFallbackToSet;
   tracked: Map<HTMLElement, ElementConfig>;
@@ -20,7 +16,7 @@ export class JpPreloadService {
   initialize(options: IntersectionObserverInit = {}) {
     this.tracked = new Map();
 
-    if (JpPreloadService.INTERSECTION_OBSERVER_SUPPORT) {
+    if ('IntersectionObserver' in window) {
       options = {
         ...this.defaultOptions,
         ...options
@@ -51,8 +47,8 @@ export class JpPreloadService {
     this.onAdd(element, config);
   }
 
-  load(element: HTMLElement) {
-    const elemConfig = this.tracked.get(element);
+  load(element: HTMLElement, elemConfig?: ElementConfig) {
+    elemConfig = elemConfig || this.tracked.get(element);
 
     if (!elemConfig) {
       return;
@@ -68,7 +64,9 @@ export class JpPreloadService {
           (element as HTMLImageElement).src = elemConfig.src;
         }
 
-        this.tracked.delete(element);
+        if (this.tracked && this.tracked.has(element)) {
+          this.tracked.delete(element);
+        }
       },
       () => {
         if (elemConfig.fallback) {
@@ -88,6 +86,6 @@ export class JpPreloadService {
   }
 
   private addImageFallbackToSet(element: HTMLElement, config: ElementConfig) {
-    this.load(element);
+    this.load(element, config);
   }
 }

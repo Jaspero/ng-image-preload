@@ -1,0 +1,18 @@
+.block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  flex-direction: column;
+
+  img {
+    max-width: 500px;
+    max-height: 500px;
+    border: 1px solid #212121;
+  }
+
+  &:nth-child(2n) {
+    background: #efefef;
+  }
+}

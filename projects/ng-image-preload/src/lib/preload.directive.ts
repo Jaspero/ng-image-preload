@@ -18,7 +18,7 @@ export class PreloadDirective {
   set preload(src: string) {
     this.service.addImage(this.el.nativeElement, {
       src,
-      background: this.el.nativeElement.nodeName === 'IMG',
+      background: this.el.nativeElement.nodeName !== 'IMG',
       fallback: this.fallback
     });
   }

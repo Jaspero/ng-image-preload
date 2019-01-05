@@ -29,10 +29,10 @@ Then in your component initialize the service:
 
 ```ts
 class AppComponent implements OnInit {
-  constructor(private _preload: PreloadService) {}
+  constructor(private preload: JpPreloadService) {}
 
   ngOnInit() {
-    this._preload.initialize();
+    this.preload.initialize();
   }
 }
 ```
@@ -62,26 +62,36 @@ constructor(
 ) {}
 
 // Then add an image element to the que like this:
-addImage(element: HTMLElement) {
-    this._preload.addImage(element);
+addImage(element: HTMLElement, config: ElementConfig) {
+    this._preload.addImage(element, config);
 }
 ```
 
 ### Directive
 
-You can add the `jaspero-preload` directive to an `img` element like this:
+You can add the `jpPreload` directive to an `img` element like this:
 
 ```html
-<img src="initialImage.jpg" jp-preload="someImage.jpg"></img>
+<img src="initialImage.jpg" jpPreload="someImage.jpg"></img>
 ```
 
 The `initialImage.jpg` will not be preloaded, this is usually a spinner or some other light image.
 The `someImage.jpg` image will be shown when the element is in view.
 
-If you need to preload a background image the `jp-preload` directive can be placed on any html element like this:
+If you need to preload a background image the `jpPreload` directive can be placed on any html element like this:
 
 ```html
-<div class="some-element" jp-preload="someImage.jpg"></div>
+<div class="some-element" jpPreload="someImage.jpg"></div>
 ```
 
 To show an image initially you can add a css background-image to the class. This image will then be replaced when the element is in view.
+
+You can also attach a fallback (loads if the requested image fails) like this:
+
+```html
+<img
+  src="initialImage.jpg"
+  jpPreload="someImage.jpg"
+  fallback="someFallback.jpg"
+/>
+```

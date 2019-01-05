@@ -109,6 +109,11 @@
           "options": {
             "tsConfig": "projects/ng-image-preload/tsconfig.lib.json",
             "project": "projects/ng-image-preload/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/ng-image-preload/ng-package.prod.json"
+            }
           }
         },
         "test": {
