@@ -1,3 +1,34 @@
+header {
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 20px;
+  background: #101418;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  color: #8B94A3;
+
+  .logo {
+    img {
+      width: 100px;
+      height: auto;
+    }
+  }
+
+  .title {
+    display: flex;
+    align-items: center;
+
+    span {
+      margin-right: 10px;
+      font-size: 20px;
+      font-weight: 500;
+    }
+  }
+}
+
 .block {
   display: flex;
   align-items: center;
