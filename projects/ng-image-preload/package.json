@@ -1,0 +1,24 @@
+{
+  "name": "ng-image-preload",
+  "version": "0.1.1",
+  "author": {
+    "name": "Jaspero Ltd",
+    "email": "info@jaspero.co"
+  },
+  "keywords": [
+    "Angular",
+    "Image Preload"
+  ],
+  "bugs": {
+    "url": "https://github.com/jaspero/ng-image-preload/issues"
+  },
+  "homepage": "https://jaspero.co",
+  "peerDependencies": {
+    "@angular/common": "^7.0.0",
+    "@angular/core": "^7.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jaspero/ng-image-preload.git"
+  }
+}
