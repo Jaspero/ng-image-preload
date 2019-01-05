@@ -41,6 +41,7 @@
               "extractCss": true,
               "namedChunks": false,
               "aot": true,
+              "baseHref": "ng-image-preload",
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
