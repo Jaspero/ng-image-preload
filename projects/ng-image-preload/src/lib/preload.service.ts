@@ -1,4 +1,7 @@
 import {Injectable} from '@angular/core';
+import {addImage} from './interfaces/add-image.type';
+import {ElementConfig} from './interfaces/element-config.interface';
+import {loadImage} from './utils/load-image';
 
 @Injectable()
 export class JpPreloadService {
@@ -7,14 +10,16 @@ export class JpPreloadService {
   }
 
   observer: IntersectionObserver;
-  onAdd: Function = this.addImageFallbackToSet;
-  elements: HTMLElement[] = [];
+  onAdd: addImage = this.addImageFallbackToSet;
+  tracked: Map<HTMLElement, ElementConfig>;
   defaultOptions: IntersectionObserverInit = {
     rootMargin: '50px 0px',
     threshold: 0.01
   };
 
   initialize(options: IntersectionObserverInit = {}) {
+    this.tracked = new Map();
+
     if (JpPreloadService.INTERSECTION_OBSERVER_SUPPORT) {
       options = {
         ...this.defaultOptions,
@@ -38,65 +43,51 @@ export class JpPreloadService {
       }
 
       this.observer.unobserve(entry.target);
-      this.initLoad(entry.target);
+      this.load(entry.target);
     });
   }
 
-  addImage(element: HTMLElement) {
-    this.onAdd(element);
+  addImage(element: HTMLElement, config: ElementConfig) {
+    this.onAdd(element, config);
   }
 
-  addImageToSet(element: HTMLElement) {
-    element.dataset.secretId = new Date().getTime().toString();
-    this.observer.observe(element);
-    this.elements.push(element);
-  }
+  load(element: HTMLElement) {
+    const elemConfig = this.tracked.get(element);
 
-  addImageFallbackToSet(element: HTMLElement) {
-    this.initLoad(element);
-  }
-
-  initLoad(element: HTMLElement) {
-    const src = element.dataset.src || element.dataset.bg;
-
-    if (!src) {
+    if (!elemConfig) {
       return;
     }
 
-    return this.load(src)
-      .then(_ => this.finalize(element))
-      .catch(err => {
-        // TODO: Do something
-        console.log(err);
-      });
-  }
+    loadImage(elemConfig.src).subscribe(
+      () => {
+        element.classList.add('loaded');
 
-  load(url) {
-    return new Promise((resolve, reject) => {
-      const image = new Image();
-      image.src = url;
-      image.onload = resolve;
-      image.onerror = reject;
-    });
-  }
+        if (elemConfig.background) {
+          element.style['backgroun-image'] = `url(${elemConfig.src})`;
+        } else {
+          (element as HTMLImageElement).src = elemConfig.src;
+        }
 
-  finalize(element) {
-    const index = this.elements.findIndex(
-      el => el.dataset.secretId === element.dataset.secretId
+        this.tracked.delete(element);
+      },
+      () => {
+        if (elemConfig.fallback) {
+          if (elemConfig.background) {
+            element.style['backgroun-image'] = `url(${elemConfig.fallback})`;
+          } else {
+            (element as HTMLImageElement).src = elemConfig.fallback;
+          }
+        }
+      }
     );
+  }
 
-    element.classList.add('loaded');
+  private addImageToSet(element: HTMLElement, config: ElementConfig) {
+    this.observer.observe(element);
+    this.tracked.set(element, config);
+  }
 
-    if (element.dataset.src) {
-      element.src = element.dataset.src;
-    } else {
-      element.styles['background-image'] = `url(${element.dataset.bg})`;
-    }
-
-    if (index === -1) {
-      return;
-    }
-
-    this.elements.splice(index, 1);
+  private addImageFallbackToSet(element: HTMLElement, config: ElementConfig) {
+    this.load(element);
   }
 }

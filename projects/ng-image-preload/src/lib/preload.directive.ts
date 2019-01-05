@@ -11,13 +11,15 @@ export class PreloadDirective {
     private service: JpPreloadService
   ) {}
 
+  @Input()
+  fallback: string;
+
   @Input('jpPreload')
-  set preload(img: string) {
-    this.renderer.setAttribute(
-      this.el.nativeElement,
-      this.el.nativeElement.nodeName === 'IMG' ? 'data-src' : 'data-bg',
-      img
-    );
-    this.service.addImage(this.el.nativeElement);
+  set preload(src: string) {
+    this.service.addImage(this.el.nativeElement, {
+      src,
+      background: this.el.nativeElement.nodeName === 'IMG',
+      fallback: this.fallback
+    });
   }
 }
