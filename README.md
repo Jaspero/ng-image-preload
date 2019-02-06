@@ -7,7 +7,7 @@
 An image preload module for Angular using [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) in favour of scroll listener's.
 
 ```
-npm install --save @jaspero/ng-image-preloader
+npm install --save @jaspero/ng-image-preload
 ```
 
 ## Example
