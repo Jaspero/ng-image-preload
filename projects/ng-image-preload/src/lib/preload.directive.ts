@@ -16,10 +16,12 @@ export class PreloadDirective {
 
   @Input('jpPreload')
   set preload(src: string) {
-    this.service.addImage(this.el.nativeElement, {
-      src,
-      background: this.el.nativeElement.nodeName !== 'IMG',
-      fallback: this.fallback
-    });
+    if (src) {
+      this.service.addImage(this.el.nativeElement, {
+        src,
+        background: this.el.nativeElement.nodeName !== 'IMG',
+        fallback: this.fallback
+      });
+    }
   }
 }
