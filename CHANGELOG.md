@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/Jaspero/ng-image-preload/compare/v1.0.2...v1.1.0) (2019-02-06)
+
+
+### Features
+
+* **PreloadDirective:** allow passing an empty src value (useful when you want to load the image conditionally) ([e695367](https://github.com/Jaspero/ng-image-preload/commit/e695367))
+
 ## [1.0.2](https://github.com/Jaspero/ng-image-preload/compare/v1.0.1...v1.0.2) (2019-01-05)
 
 
