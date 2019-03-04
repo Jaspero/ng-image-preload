@@ -59,7 +59,7 @@ export class JpPreloadService {
         element.classList.add('loaded');
 
         if (elemConfig.background) {
-          element.style['backgroun-image'] = `url(${elemConfig.src})`;
+          element.style['background-image'] = `url(${elemConfig.src})`;
         } else {
           (element as HTMLImageElement).src = elemConfig.src;
         }
@@ -71,7 +71,7 @@ export class JpPreloadService {
       () => {
         if (elemConfig.fallback) {
           if (elemConfig.background) {
-            element.style['backgroun-image'] = `url(${elemConfig.fallback})`;
+            element.style['background-image'] = `url(${elemConfig.fallback})`;
           } else {
             (element as HTMLImageElement).src = elemConfig.fallback;
           }
