@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/Jaspero/ng-image-preload/compare/v1.1.0...v1.1.1) (2019-03-04)
+
+
+### Bug Fixes
+
+* **PreloadService:** background not being set properly on none img elements :bug: ([c701c01](https://github.com/Jaspero/ng-image-preload/commit/c701c01))
+
 # [1.1.0](https://github.com/Jaspero/ng-image-preload/compare/v1.0.2...v1.1.0) (2019-02-06)
 
 
