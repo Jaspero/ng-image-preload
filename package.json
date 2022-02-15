@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod ng-image-preload",
-    "build:gh-pages": "ng build --prod --project=ng-image-preload-example",
+    "build": "ng build --configuration production ng-image-preload",
+    "build:gh-pages": "ng build --configuration production --project=ng-image-preload-example",
     "postbuild": "cp ./README.md ./dist/@jaspero/ng-image-preload && cp LICENSE ./dist/@jaspero/ng-image-preload",
     "test": "ls",
     "test:app": "ls",
@@ -37,10 +37,10 @@
     "core-js": "^2.5.4",
     "rxjs": "~6.6.7",
     "tslib": "^2.0.0",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular/cli": "~11.2.18",
+    "@angular/cli": "~12.2.16",
     "@angular/compiler-cli": "~11.2.14",
     "@angular/language-service": "~11.2.14",
     "@semantic-release/changelog": "^3.0.2",
