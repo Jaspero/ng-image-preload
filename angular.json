@@ -13,7 +13,7 @@
       "prefix": "jp",
       "schematics": {
         "@schematics/angular:component": {
-          "styleext": "scss",
+          "style": "scss",
           "changeDetection": "OnPush"
         }
       },
@@ -21,6 +21,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "docs",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -53,6 +54,10 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ]
             }
@@ -103,7 +108,7 @@
       "prefix": "jp",
       "schematics": {
         "@schematics/angular:component": {
-          "styleext": "scss",
+          "style": "scss",
           "changeDetection": "OnPush"
         }
       },
@@ -116,7 +121,8 @@
           },
           "configurations": {
             "production": {
-              "project": "projects/ng-image-preload/ng-package.prod.json"
+              "project": "projects/ng-image-preload/ng-package.prod.json",
+              "tsConfig": "projects/ng-image-preload/tsconfig.lib.prod.json"
             }
           }
         },
