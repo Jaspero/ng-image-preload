@@ -9,7 +9,7 @@ import {JpPreloadService} from './preload.service';
   exports: [PreloadDirective]
 })
 export class JpImagePreloadModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<JpImagePreloadModule> {
     return {
       ngModule: JpImagePreloadModule,
       providers: [JpPreloadService]
