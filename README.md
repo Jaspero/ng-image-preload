@@ -23,7 +23,7 @@ Import `JpImagePreloaderModule` in your `@NgModule`:
 ```ts
 @NgModule({
     imports: [
-        JpImagePreloaderModule.forRoot();
+        JpImagePreloaderModule.forRoot()
     ],
     declarations: [AppComponent],
     bootstrap: [AppComponent]
